@@ -63,8 +63,7 @@ function Dashboards(props: DashboardsProp) {
 
   useEffect(() => {
     router.refresh();
-    onReloadHandler();
-  }, []);
+  }, [router]);
 
   const onReloadHandler = async () => {
     // const userID = cookie.get('userID');

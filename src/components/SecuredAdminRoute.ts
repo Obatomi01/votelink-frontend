@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import cookie from 'js-cookie';
 
 export const secureAdminRoute = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const token = cookie.get('token');
   const isLoggedIn = cookie.get('isLoggedIn');
 
   if (!token || !isLoggedIn) {
-    router.refresh();
+    // router.refresh();
     return;
   }
 };

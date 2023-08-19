@@ -55,27 +55,6 @@ function ElectionSessions(props: DashboardsProp) {
     showEndedSessions = true;
   }
 
-  useEffect(() => {
-    // const curData = showEndedSessions
-    //   ? props.ascendingData
-    //   : props.activeAscendingData;
-
-    // const filteredData = curData.filter((el: any) => {
-    //   if (launchQuery && unlaunchQuery) {
-    //     return el;
-    //   }
-    //   if (launchQuery) {
-    //     return el.hasStarted;
-    //   }
-    //   if (unlaunchQuery) {
-    //     return !el.hasStarted;
-    //   }
-    //   return el;
-    // });
-    // setExtractedElectionData(filteredData);
-    onReloadHandler();
-  }, [searchParams, props.activeAscendingData]);
-
   const onReloadHandler = async () => {
     const { sortedSessionAsc, activeAscData } = await getElectionSessions();
 
@@ -95,6 +74,27 @@ function ElectionSessions(props: DashboardsProp) {
     });
     setExtractedElectionData(filteredData);
   };
+
+  useEffect(() => {
+    // const curData = showEndedSessions
+    //   ? props.ascendingData
+    //   : props.activeAscendingData;
+
+    // const filteredData = curData.filter((el: any) => {
+    //   if (launchQuery && unlaunchQuery) {
+    //     return el;
+    //   }
+    //   if (launchQuery) {
+    //     return el.hasStarted;
+    //   }
+    //   if (unlaunchQuery) {
+    //     return !el.hasStarted;
+    //   }
+    //   return el;
+    // });
+    // setExtractedElectionData(filteredData);
+    onReloadHandler();
+  }, [searchParams, props.activeAscendingData, onReloadHandler]);
 
   const onSortElectionsHandler = () => {
     setAscendingOrder(!ascendingOrder);

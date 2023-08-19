@@ -32,20 +32,6 @@ function CheckBoxes(props: CheckBoxesProps) {
 
   const { launched, unlaunched, showEndedSessions } = state;
   // const { showEndedSessions } = props;
-
-  useEffect(() => {
-    let url = `/admin/sessions${
-      showEndedSessions ? '?showEndedSessions=true' : '?'
-    }`;
-    if (launched || unlaunched) {
-      url = `/admin/sessions${
-        showEndedSessions ? '?showEndedSessions=true&' : '?'
-      }`;
-    }
-
-    launchedFilterHandler(url);
-  }, [launched, unlaunched, showEndedSessions]);
-
   const launchedFilterHandler = (url: string) => {
     if (launched && unlaunched) {
       return router.push(`${url}launched=true&unlaunched=true`);
@@ -60,6 +46,19 @@ function CheckBoxes(props: CheckBoxesProps) {
       return router.push(`${url}unlaunched=true`);
     }
   };
+
+  useEffect(() => {
+    let url = `/admin/sessions${
+      showEndedSessions ? '?showEndedSessions=true' : '?'
+    }`;
+    if (launched || unlaunched) {
+      url = `/admin/sessions${
+        showEndedSessions ? '?showEndedSessions=true&' : '?'
+      }`;
+    }
+
+    launchedFilterHandler(url);
+  }, [launched, unlaunched, showEndedSessions, launchedFilterHandler]);
 
   const handleChange = (event: any) => {
     setState({

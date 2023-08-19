@@ -5,14 +5,14 @@ import { useRouter } from 'next/navigation';
 import cookie from 'js-cookie';
 
 export const secureVoterRoute = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const token = cookie.get('token');
   const isLoggedIn = cookie.get('isLoggedIn');
   // const userID = cookie.get('userID');
 
   if (!token || !isLoggedIn) {
-    router.refresh();
+    // router.refresh();
     return;
   }
 

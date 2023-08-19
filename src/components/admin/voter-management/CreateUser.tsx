@@ -40,7 +40,7 @@ function CreateUser() {
 
   useEffect(() => {
     router.refresh();
-  }, []);
+  }, [router]);
 
   const onReloadHandler = async () => {
     const userID = cookie.get('userID');
@@ -121,7 +121,7 @@ function CreateUser() {
             <div
               className={`${styles['title--container']} ${styles['form--field__container']}`}
             >
-              <h3>Voter's ID</h3>
+              <h3>Voter&apos;s ID</h3>
 
               <input
                 type='text'
@@ -141,7 +141,7 @@ function CreateUser() {
             <div
               className={`${styles['title--container']} ${styles['form--field__container']}`}
             >
-              <h3>Voter's Name</h3>
+              <h3>Voter&apos;s Name</h3>
 
               <input
                 type='text'
@@ -161,7 +161,7 @@ function CreateUser() {
             <div
               className={`${styles['title--container']} ${styles['form--field__container']}`}
             >
-              <h3>Voter's Password</h3>
+              <h3>Voter&apos;s Password</h3>
               <input
                 type='text'
                 onChange={props.handleChange}

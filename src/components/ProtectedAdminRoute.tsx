@@ -13,10 +13,6 @@ export default function ProtectedAdminRoute(props: any) {
   const isLoggedIn = cookie.get('isLoggedIn');
   const userID = cookie.get('userID');
 
-  useEffect(() => {
-    onCheckRoleHandler();
-  }, [token, isLoggedIn, router]);
-
   const onCheckRoleHandler = async () => {
     if (userID) {
       const { role } = await getUserData(userID);
@@ -25,6 +21,10 @@ export default function ProtectedAdminRoute(props: any) {
       }
     }
   };
+
+  useEffect(() => {
+    onCheckRoleHandler();
+  }, [token, isLoggedIn, router, onCheckRoleHandler]);
 
   const { children } = props;
 

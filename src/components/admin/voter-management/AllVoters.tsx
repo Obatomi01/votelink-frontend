@@ -25,11 +25,6 @@ function AllVoters(props: AllVotersPage) {
   const [allUsers, setAllUsers] = useState<any>(props.users);
   const [voters, setVoters] = useState<any>(props.users);
 
-  useEffect(() => {
-    router.refresh();
-    onReloadHandler();
-  }, []);
-
   const onReloadHandler = async () => {
     // const userID = cookie.get('userID');
 
@@ -46,6 +41,11 @@ function AllVoters(props: AllVotersPage) {
     setVoters(users);
     setAllUsers(users);
   };
+
+  useEffect(() => {
+    router.refresh();
+    onReloadHandler();
+  }, [router, onReloadHandler]);
 
   const onSearchHandler = (value: string) => {
     const filteredVoters = allUsers.filter((voter: any) => {

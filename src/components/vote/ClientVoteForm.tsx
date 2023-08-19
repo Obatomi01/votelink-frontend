@@ -42,11 +42,6 @@ function ClientVoteForm(props: ClientVoteFormProps) {
   voteForm.hasVoted;
   voteForm.userID;
 
-  useEffect(() => {
-    router.refresh();
-    onReloadHandler();
-  }, []);
-
   const onReloadHandler = async () => {
     const curUserID = cookie.get('userID') || '';
     const curToken = cookie.get('token') || '';
@@ -66,6 +61,11 @@ function ClientVoteForm(props: ClientVoteFormProps) {
       hasVoted,
     });
   };
+
+  useEffect(() => {
+    router.refresh();
+    onReloadHandler();
+  }, [router, onReloadHandler]);
 
   return (
     <section className={styles['form--container']}>

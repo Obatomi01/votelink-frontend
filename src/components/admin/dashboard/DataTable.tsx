@@ -32,7 +32,7 @@ function DataTable(props: DataTableProps) {
 
   useEffect(() => {
     router.refresh();
-  }, []);
+  }, [router]);
 
   const onReloadHandler = async () => {
     const userID = cookie.get('userID');

@@ -16,7 +16,7 @@ function NoActiveElections(props: NoActiveElectionsProps) {
 
   useEffect(() => {
     router.refresh();
-  }, []);
+  }, [router]);
 
   return (
     <section className={styles['form--container']}>
