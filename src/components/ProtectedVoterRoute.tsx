@@ -14,7 +14,7 @@ export default function ProtectedVoterRoute(props: any) {
   const userID = cookie.get('userID');
 
   useEffect(() => {
-    onCheckRoleHandler();
+    // onCheckRoleHandler();
   }, [token, isLoggedIn, router]);
 
   const onCheckRoleHandler = async () => {

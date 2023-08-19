@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 import ElectionSessions from '../election-session/ElectionSessions';
@@ -30,22 +30,17 @@ function Sessions(props: DashboardsProp) {
     sortedSessionDesc: props.descendingData,
   });
 
-  useEffect(() => {
-    router.refresh();
-    onReloadHandler();
-  }, [router]);
+  const onReloadHandler = useCallback(async () => {
+    // const userID = cookie.get('userID');
 
-  const onReloadHandler = async () => {
-    const userID = cookie.get('userID');
+    // if (userID) {
+    //   const { role } = await getUserData(userID);
 
-    if (userID) {
-      const { role } = await getUserData(userID);
-
-      if (role !== 'admin') {
-        router.refresh();
-        return;
-      }
-    }
+    //   if (role !== 'admin') {
+    //     router.refresh();
+    //     return;
+    //   }
+    // }
 
     const {
       sortedSessionAsc,
@@ -60,7 +55,13 @@ function Sessions(props: DashboardsProp) {
       sortedSessionAsc,
       sortedSessionDesc,
     });
-  };
+  }, []);
+
+  useEffect(() => {
+    router.refresh();
+    onReloadHandler();
+  }, [router, onReloadHandler]);
+
   return (
     <ElectionSessions
       ascendingData={sessions.sortedSessionAsc}

@@ -23,8 +23,8 @@ export default function ProtectedAdminRoute(props: any) {
   };
 
   useEffect(() => {
-    onCheckRoleHandler();
-  }, [token, isLoggedIn, router, onCheckRoleHandler]);
+    // onCheckRoleHandler();
+  }, [token, isLoggedIn, router]);
 
   const { children } = props;
 

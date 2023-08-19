@@ -3,7 +3,7 @@
 import SearchItem from '@/components/SearchItem';
 import DataTable from '../dashboard/DataTable';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getAllVoters, getUserData } from '@/components/utils';
 import {} from '@/components/SecuredAdminRoute';
 
@@ -25,7 +25,7 @@ function AllVoters(props: AllVotersPage) {
   const [allUsers, setAllUsers] = useState<any>(props.users);
   const [voters, setVoters] = useState<any>(props.users);
 
-  const onReloadHandler = async () => {
+  const onReloadHandler = useCallback(async () => {
     // const userID = cookie.get('userID');
 
     // if (userID) {
@@ -40,7 +40,7 @@ function AllVoters(props: AllVotersPage) {
     const { users } = await getAllVoters();
     setVoters(users);
     setAllUsers(users);
-  };
+  }, []);
 
   useEffect(() => {
     router.refresh();

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 import styles from '@/styles/admin/dashboard.module.scss';
@@ -55,7 +55,7 @@ function ElectionSessions(props: DashboardsProp) {
     showEndedSessions = true;
   }
 
-  const onReloadHandler = async () => {
+  const onReloadHandler = useCallback(async () => {
     const { sortedSessionAsc, activeAscData } = await getElectionSessions();
 
     const curData = showEndedSessions ? sortedSessionAsc : activeAscData;
@@ -73,7 +73,7 @@ function ElectionSessions(props: DashboardsProp) {
       return el;
     });
     setExtractedElectionData(filteredData);
-  };
+  }, [launchQuery, unlaunchQuery, showEndedSessions]);
 
   useEffect(() => {
     // const curData = showEndedSessions

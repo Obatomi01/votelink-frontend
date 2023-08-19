@@ -7,7 +7,7 @@ import {
 
 import cookie from 'js-cookie';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { getUserData } from '@/components/utils';
@@ -42,7 +42,7 @@ function ClientVoteForm(props: ClientVoteFormProps) {
   voteForm.hasVoted;
   voteForm.userID;
 
-  const onReloadHandler = async () => {
+  const onReloadHandler = useCallback(async () => {
     const curUserID = cookie.get('userID') || '';
     const curToken = cookie.get('token') || '';
 
@@ -60,7 +60,7 @@ function ClientVoteForm(props: ClientVoteFormProps) {
       token: curToken,
       hasVoted,
     });
-  };
+  }, [props.sessionID]);
 
   useEffect(() => {
     router.refresh();

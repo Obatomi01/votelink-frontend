@@ -56,7 +56,7 @@ function NewElectionSession() {
 
   useEffect(() => {
     router.refresh();
-  }, []);
+  }, [router]);
 
   // const onReloadHandler = async () => {
   //   const userID = cookie.get('userID');

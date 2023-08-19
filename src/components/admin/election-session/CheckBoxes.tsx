@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { green } from '@mui/material/colors';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 
 type CheckBoxesProps = {
@@ -32,20 +32,23 @@ function CheckBoxes(props: CheckBoxesProps) {
 
   const { launched, unlaunched, showEndedSessions } = state;
   // const { showEndedSessions } = props;
-  const launchedFilterHandler = (url: string) => {
-    if (launched && unlaunched) {
-      return router.push(`${url}launched=true&unlaunched=true`);
-    }
-    if (!launched && !unlaunched) {
-      return router.push(`${url}`);
-    }
-    if (launched) {
-      return router.push(`${url}launched=true`);
-    }
-    if (unlaunched) {
-      return router.push(`${url}unlaunched=true`);
-    }
-  };
+  const launchedFilterHandler = useCallback(
+    (url: string) => {
+      if (launched && unlaunched) {
+        return router.push(`${url}launched=true&unlaunched=true`);
+      }
+      if (!launched && !unlaunched) {
+        return router.push(`${url}`);
+      }
+      if (launched) {
+        return router.push(`${url}launched=true`);
+      }
+      if (unlaunched) {
+        return router.push(`${url}unlaunched=true`);
+      }
+    },
+    [router, launched, unlaunched]
+  );
 
   useEffect(() => {
     let url = `/admin/sessions${
