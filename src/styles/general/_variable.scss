@@ -1,0 +1,99 @@
+// main colors
+$primary-color: #28a745;
+$secondary-color: #a7d1a7;
+$tertiary-color: #1e7a1e;
+$dark-shade: #1e4e1e;
+
+//complementary colors
+$complementary-primary-color: #a7a528;
+$white-darker-shade: #e6e6e6;
+
+// text colors
+$main-text-color: #333333;
+
+// heading font sizes
+$main-page-font-size: 3.6rem;
+$section-heading-font-size: 3rem;
+$subheading-font-size: 2.7rem;
+
+// body text sizes
+$main-body-font-size: 1.8rem;
+$description-font-size: 1.6rem;
+$supporting-text-font-size: 1.4rem;
+
+// paddings and margins
+$subheading-padding: 9.6rem;
+$primary-padding: 2.4rem;
+$secondary-padding: 4.8rem;
+$tertiary-padding: 6.4rem;
+$smallest-padding: 0.8rem;
+$smaller-padding: 1.2rem;
+$small-padding: 1.6rem;
+
+$button-top-padding: 1.8rem;
+$button-bottom-padding: 1.8rem;
+
+$container-width: 100rem;
+
+// FORM CONTAINER
+@mixin formContainerStyle($class) {
+  .#{$class} {
+    max-width: 70%;
+    margin: auto;
+    background-color: #fff;
+
+    padding: $tertiary-padding;
+  }
+}
+
+@mixin btnStyles($class) {
+  .#{$class} {
+    background-color: $primary-color;
+    border: none;
+
+    padding-block: $smaller-padding;
+    padding-inline: $primary-padding;
+
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
+      color: $primary-color;
+
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
+@mixin formCardStyles($class) {
+  .#{$class} {
+    margin-bottom: $primary-padding;
+
+    border-radius: $smaller-padding;
+    box-shadow: 0px 5px 20px 1px $secondary-color;
+
+    border-bottom: 3px solid $tertiary-color;
+  }
+}
+
+// INPUT CONTAINER
+@mixin formInputField($class) {
+  .#{$class} {
+    width: 100%;
+
+    padding: $small-padding;
+    font-size: $main-body-font-size;
+
+    border: none;
+    background-color: $white-darker-shade;
+
+    outline: none;
+
+    font-size: $primary-padding;
+
+    &:focus {
+      border: 3px solid $tertiary-color;
+    }
+  }
+}

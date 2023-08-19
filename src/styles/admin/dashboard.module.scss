@@ -1,0 +1,238 @@
+@import '../general/variable';
+
+.voter--container.admin--dashboard__container {
+  width: 100%;
+}
+
+.admin--dashboard__container {
+  background-color: $secondary-color;
+  min-height: 100vh;
+
+  padding-block: $tertiary-padding;
+  width: 85%;
+
+  h1 {
+    color: $tertiary-color;
+    text-align: center;
+
+    margin-bottom: $smaller-padding;
+  }
+
+  @include formContainerStyle(dashboard--containers);
+
+  .dashboard--containers {
+    @include formCardStyles(dashboard--container);
+    @include btnStyles(btn);
+    @include btnStyles(submit--btn);
+
+    .no--form__error,
+    .form--error {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .no--form__error {
+      color: #1e7a1e;
+    }
+
+    .form--error {
+      color: red;
+    }
+
+    .dashboards--container__heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .ended {
+        color: red;
+      }
+
+      .active {
+        color: $primary-color;
+      }
+
+      .ended,
+      .active {
+        font-weight: bold;
+      }
+    }
+
+    .session--heading__container {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: $small-padding;
+
+      .sort--icon {
+        filter: invert(56%) sepia(12%) saturate(2341%) hue-rotate(81deg)
+          brightness(92%) contrast(96%);
+        width: 4rem;
+        height: 4rem;
+
+        cursor: pointer;
+      }
+    }
+
+    .session-title {
+      text-align: center;
+      color: $tertiary-color;
+      margin-bottom: $smaller-padding;
+    }
+
+    .no-election {
+      h3 {
+        text-align: center;
+        margin-bottom: $small-padding;
+      }
+    }
+
+    .spinner {
+      display: flex;
+      margin-bottom: $primary-padding;
+
+      img {
+        width: 3%;
+        height: 3%;
+      }
+
+      .btn--spinner {
+        width: 15%;
+        height: 15%;
+      }
+    }
+
+    .spinner-icon {
+      margin: auto;
+      animation: spin 1s infinite linear;
+      filter: invert(56%) sepia(12%) saturate(2341%) hue-rotate(81deg)
+        brightness(92%) contrast(96%);
+    }
+
+    .btns--container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: $primary-padding;
+
+      .spinner--submit__btn {
+        background-color: #fff;
+        padding-block: $smaller-padding;
+        padding-inline: $primary-padding;
+
+        border: 1px solid $tertiary-color;
+      }
+
+      .submit--btn,
+      .spinner--submit__btn {
+        width: 20rem;
+        height: 5rem;
+      }
+
+      .delete--btn {
+        background-color: red;
+
+        &:hover {
+          color: #fff;
+          border: none;
+        }
+      }
+
+      button.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        // pointer-events: none;
+      }
+    }
+
+    .dashboard--container {
+      padding: $primary-padding;
+
+      h2 {
+        color: $tertiary-color;
+      }
+
+      .dashboard--heading {
+        display: flex;
+        justify-content: space-between;
+
+        .launched {
+          color: $primary-color;
+          font-weight: bold;
+        }
+
+        .not--launched {
+          color: #e3e13e;
+          font-weight: bold;
+        }
+      }
+
+      .ended-date,
+      .ending--date {
+        font-weight: 700;
+      }
+
+      .ending--date {
+        color: $primary-color;
+      }
+
+      .ended-date {
+        color: red;
+      }
+
+      .next--icon__container {
+        display: flex;
+        justify-content: flex-end;
+
+        .next--icon {
+          width: 5rem;
+          height: 3rem;
+          cursor: pointer;
+
+          filter: invert(21%) sepia(56%) saturate(595%) hue-rotate(70deg)
+            brightness(97%) contrast(90%);
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ********************************** //
+// ********** MEDIA QUERIES ********* //
+// ********************************** //
+
+// ** 1000px ** //
+@media (max-width: 62.5em) {
+  .admin--dashboard__container {
+    width: 100%;
+  }
+}
+
+// ** 750px ** //
+@media (max-width: 62.5em) {
+  .admin--dashboard__container {
+    .dashboard--containers {
+      max-width: 85%;
+    }
+  }
+}
+
+// ** 500px ** //
+@media (max-width: 31.25em) {
+  .admin--dashboard__container {
+    .dashboard--containers {
+      max-width: 95%;
+      padding-inline: $primary-padding;
+    }
+  }
+}

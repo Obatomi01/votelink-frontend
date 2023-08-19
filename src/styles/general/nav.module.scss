@@ -1,0 +1,134 @@
+@import './variable';
+
+.nav--main__container {
+  width: 15%;
+  background-color: #1e4e1e;
+  position: relative;
+
+  padding-block: $secondary-padding;
+
+  .nav--container {
+    position: fixed;
+    height: 100vh;
+    width: 15%;
+
+    .flex--nav__container {
+      height: 70%;
+
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+
+      h3,
+      p {
+        color: #cccccc;
+      }
+
+      a {
+        padding-block: $secondary-padding;
+        text-align: center;
+
+        border-block: 0.1px solid $white-darker-shade;
+      }
+
+      .active--link {
+        background-color: $primary-color;
+
+        p {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// ********************************** //
+// ********** MEDIA QUERIES ********* //
+// ********************************** //
+
+// ** 1000px ** //
+@media (max-width: 62.5em) {
+  .nav--icon {
+    filter: invert(56%) sepia(12%) saturate(2341%) hue-rotate(81deg)
+      brightness(92%) contrast(96%);
+    width: 4rem;
+    height: 4rem;
+
+    cursor: pointer;
+  }
+
+  .menu--icon {
+    position: absolute;
+    top: $secondary-padding;
+    left: $secondary-padding;
+  }
+
+  .nav--main__container {
+    position: absolute;
+    background-color: #1e4e1e;
+    height: 100vh;
+
+    width: 35rem;
+    z-index: 2;
+    overflow-y: hidden;
+
+    transition: all 0.4s ease-in;
+
+    // position: fixed;
+    // width: 50rem;
+
+    .nav--container {
+      width: 35rem;
+      position: fixed;
+      overflow-y: hidden;
+    }
+  }
+
+  .nav--main__container.hide--nav {
+    left: -35rem;
+  }
+
+  .nav--main__container.show--nav {
+    left: 0rem;
+  }
+
+  .blurry--background {
+    // pointer-events: none;
+    overflow-y: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: fixed;
+      overflow-y: hidden;
+      max-height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      backdrop-filter: blur(5px);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .nav--icon {
+      filter: invert(56%) sepia(12%) saturate(2341%) hue-rotate(81deg)
+        brightness(92%) contrast(96%);
+      width: 4rem;
+      height: 4rem;
+
+      cursor: pointer;
+    }
+
+    .close--icon__container {
+      position: absolute;
+      z-index: 4;
+
+      left: 37rem;
+      top: $secondary-padding;
+    }
+  }
+}

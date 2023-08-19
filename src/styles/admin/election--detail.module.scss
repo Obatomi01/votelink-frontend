@@ -1,0 +1,75 @@
+@import '../general/variable';
+
+@include formContainerStyle(election--details);
+
+.election--details {
+  min-height: 100vh;
+  padding-inline: 0rem;
+
+  width: 100rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: $smallest-padding;
+  }
+
+  .table-wrap {
+    max-width: 95%;
+    margin: auto;
+    overflow-x: auto;
+
+    @include btnStyles(btn);
+
+    .delete--btn {
+      background-color: red;
+    }
+  }
+
+  table,
+  td,
+  th {
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+  th {
+    background: $dark-shade;
+    color: #fff;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 15px;
+    white-space: nowrap;
+  }
+
+  table tbody tr:nth-child(odd) {
+    background: $secondary-color;
+    color: #fff;
+    font-weight: 500;
+  }
+}
+
+// ********************************** //
+// ********** MEDIA QUERIES ********* //
+// ********************************** //
+
+// ** 750px ** //
+@media (max-width: 62.5em) {
+  .election--details {
+    max-width: 85%;
+  }
+}
+
+// ** 500px ** //
+@media (max-width: 31.25em) {
+  .election--details {
+    max-width: 95%;
+  }
+}

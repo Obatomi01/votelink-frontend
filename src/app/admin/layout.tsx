@@ -1,25 +1,31 @@
 import type { Metadata } from 'next';
-import './globals.css';
+
 import { Nunito } from 'next/font/google';
-import { AuthProvider } from '@/components/AuthContext';
+
+import Nav from '@/components/Nav';
 
 const nunito = Nunito({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
-  title: 'Votelink',
+  title: 'Votelink - Admin',
   description: 'A Voting Platform',
 };
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={nunito.className}>
-        <AuthProvider>{children}</AuthProvider>
-      </body>
-    </html>
+    <section className={nunito.className}>
+      <section
+        style={{
+          display: 'flex',
+        }}
+      >
+        <Nav />
+        {children}
+      </section>
+    </section>
   );
 }
