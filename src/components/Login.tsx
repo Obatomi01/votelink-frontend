@@ -17,6 +17,9 @@ import styles from '../styles/admin/election-management.module.scss';
 
 import Spinner from '../../public/icons/loading.png';
 
+import ShowPasswordBtn from '@/../public/icons/visible.png';
+import HidePasswordBtn from '@/../public/icons/hide.png';
+
 type FormMessage = {
   message: string;
   ok: boolean;
@@ -36,6 +39,8 @@ function Login() {
     ok: false,
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+
   useEffect(() => {
     cookie.set('token', '');
     cookie.set('isLoggedIn', '');
@@ -54,6 +59,10 @@ function Login() {
       .min(8, 'Password must be at least 8 characters long')
       .required(),
   });
+
+  const onShowPasswordHandler = () => {
+    setShowPassword(!showPassword);
+  };
 
   const onFormSubmitHandler = async (values: any, actions: any) => {
     setShowSpinner(true);
@@ -131,15 +140,24 @@ function Login() {
               className={`${styles['title--container']} ${styles['form--field__container']}`}
             >
               <h3>Password</h3>
-              <input
-                type='text'
-                onChange={props.handleChange}
-                onBlur={props.handleBlur}
-                placeholder='Enter the password'
-                name='password'
-                value={props.values.password}
-                title='name'
-              />
+              <div className={styles['password--container']}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}
+                  placeholder='Enter the password'
+                  name='password'
+                  value={props.values.password}
+                  title='name'
+                />
+
+                <Image
+                  src={!showPassword ? ShowPasswordBtn : HidePasswordBtn}
+                  alt='Icon'
+                  className={styles['password--icon']}
+                  onClick={() => onShowPasswordHandler()}
+                />
+              </div>
 
               <p className={styles.error}>
                 <ErrorMessage name='password' />

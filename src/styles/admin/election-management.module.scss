@@ -25,8 +25,8 @@
       display: flex;
 
       img {
-        width: 3%;
-        height: 3%;
+        width: 7%;
+        height: 7%;
       }
 
       .btn--spinner {
@@ -153,6 +153,24 @@
           justify-content: space-between;
           // padding-left: $small-padding;
         }
+
+        .password--container {
+          position: relative;
+          .password--icon {
+            width: 4%;
+            height: 70%;
+
+            position: absolute;
+            right: 3rem;
+            top: 0.8rem;
+
+            cursor: pointer;
+
+            filter: invert(56%) sepia(12%) saturate(2341%) hue-rotate(81deg)
+              brightness(92%) contrast(96%);
+            transition: transform 0.6s ease-in;
+          }
+        }
       }
 
       .position--container {
@@ -270,6 +288,18 @@
 @media (max-width: 62.5em) {
   .form--container {
     width: 100%;
+
+    .form {
+      form {
+        .form--field__container {
+          .password--container {
+            .password--icon {
+              width: 5%;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -278,6 +308,16 @@
   .form--container {
     .form {
       max-width: 85%;
+
+      form {
+        .form--field__container {
+          .password--container {
+            .password--icon {
+              width: 6%;
+            }
+          }
+        }
+      }
 
       .btn {
         padding-inline: $smallest-padding;
@@ -290,7 +330,7 @@
 @media (max-width: 31.25em) {
   .form--container {
     .form {
-      max-width: 95%;
+      max-width: 90%;
       padding-inline: $primary-padding;
     }
   }

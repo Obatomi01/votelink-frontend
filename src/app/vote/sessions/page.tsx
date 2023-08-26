@@ -3,6 +3,9 @@ import { onHandleVoterPageRequest } from '@/components/authAdmin';
 import NoActiveElections from '@/components/vote/NoActiveElections';
 import VoterElectionSessions from '@/components/vote/VoterElectionSessions';
 
+import Image from 'next/image';
+import Logo from '@/../public/images/ammanlogo.png';
+
 import { API_URL } from '@/constants';
 
 import styles from '@/styles/admin/dashboard.module.scss';
@@ -31,6 +34,15 @@ async function AllSessionsPage() {
     <section
       className={`${styles['admin--dashboard__container']} ${styles['voter--container']}`}
     >
+      <Image
+        src={Logo}
+        alt='Logo'
+        style={{
+          display: 'block',
+          marginInline: 'auto',
+          marginBottom: '1.2rem',
+        }}
+      />
       <VoterElectionSessions electionSessions={sessions} />
     </section>
   );

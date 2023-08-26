@@ -8,6 +8,27 @@
 
   width: 100rem;
 
+  .heading--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 95%;
+    margin: auto;
+
+    p {
+      font-weight: bold;
+    }
+
+    .ended {
+      color: red;
+    }
+
+    .active {
+      color: $primary-color;
+    }
+  }
+
   h1 {
     text-align: center;
     margin-bottom: $smallest-padding;
@@ -70,6 +91,6 @@
 // ** 500px ** //
 @media (max-width: 31.25em) {
   .election--details {
-    max-width: 95%;
+    max-width: 90%;
   }
 }

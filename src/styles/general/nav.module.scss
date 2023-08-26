@@ -5,12 +5,23 @@
   background-color: #1e4e1e;
   position: relative;
 
-  padding-block: $secondary-padding;
+  padding-block: $primary-padding;
 
   .nav--container {
     position: fixed;
     height: 100vh;
     width: 15%;
+
+    .nav--logo__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .company--logo {
+      margin-bottom: $smaller-padding;
+      margin-inline: auto;
+    }
 
     .flex--nav__container {
       height: 70%;
@@ -59,7 +70,7 @@
 
   .menu--icon {
     position: absolute;
-    top: $secondary-padding;
+    top: $primary-padding;
     left: $secondary-padding;
   }
 

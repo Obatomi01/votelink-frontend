@@ -10,6 +10,7 @@ import styles from '@/styles/general/nav.module.scss';
 
 import MenuIcon from '@/../public/icons/more.png';
 import CloseIcon from '@/../public/icons/close.png';
+import Logo from '@/../public/images/ammanlogo.png';
 
 function Nav() {
   const pathname = usePathname();
@@ -89,20 +90,31 @@ function Nav() {
         }`}
       >
         <div className={styles['nav--container']}>
-          <div className={styles['flex--nav__container']}>
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+          <div className={styles['nav--logo__container']}>
+            <Image
+              src={Logo}
+              alt='Logo'
+              width={70}
+              height={50}
+              className={styles['company--logo']}
+            />
 
-              return (
-                <Link
-                  className={isActive ? styles['active--link'] : ''}
-                  href={link.href}
-                  key={link.name}
-                >
-                  <p>{link.name}</p>
-                </Link>
-              );
-            })}
+            <div className={styles['flex--nav__container']}>
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <Link
+                    className={isActive ? styles['active--link'] : ''}
+                    href={link.href}
+                    key={link.name}
+                  >
+                    <p>{link.name}</p>
+                  </Link>
+                );
+              })}
+              I
+            </div>
           </div>
         </div>
       </div>

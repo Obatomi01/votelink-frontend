@@ -16,6 +16,9 @@ import styles from '@/styles/vote/vote.module.scss';
 
 import VoteForm from '@/components/vote/VoteForm';
 
+import Image from 'next/image';
+import Logo from '@/../public/images/ammanlogo.png';
+
 type ClientFormState = {
   userID: string;
   token: string;
@@ -68,7 +71,16 @@ function ClientVoteForm(props: ClientVoteFormProps) {
   }, [router, onReloadHandler]);
 
   return (
-    <section className={styles['form--container']}>
+    <section>
+      <Image
+        src={Logo}
+        alt='Logo'
+        style={{
+          display: 'block',
+          marginInline: 'auto',
+          marginBottom: '1.2rem',
+        }}
+      />
       <VoteForm
         electionData={props.electionData}
         userID={voteForm.userID}

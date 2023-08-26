@@ -153,7 +153,7 @@ function VoteForm(props: VoteFormProps) {
           </div>
         ))}
         <button type='submit' className={styles.btn}>
-          Submit
+          <p>Submit</p>
         </button>
       </form>
     </section>

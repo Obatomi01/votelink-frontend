@@ -27,7 +27,8 @@ export default async function DashboardInfo({
     }
   );
 
-  const { data, title } = await getElectionDetails.json();
+  // const election = await getElectionDetails.json();
+  const { data, title, hasEnded } = await getElectionDetails.json();
 
   const sortedCastedVotes: Record<any, any> = Object.fromEntries(
     Object.entries(data.castedVotes).sort(([, valueA], [, valueB]) => {
@@ -50,7 +51,12 @@ export default async function DashboardInfo({
 
   return (
     <main className={styles['election--details']}>
-      <h1>{title} Position</h1>
+      <div className={styles['heading--container']}>
+        <h1>{title} Position</h1>
+        <p className={hasEnded ? styles['ended'] : styles['active']}>
+          {hasEnded ? 'Ended Election' : 'Active Election'}
+        </p>
+      </div>
       <DataTable
         castedVotes={formattedCastedVotes}
         firstColumn='Current Position'
