@@ -339,6 +339,16 @@
     .form {
       max-width: 90%;
       padding-inline: $primary-padding;
+
+      form {
+        .form--field__container {
+          .password--container {
+            .password--icon {
+              width: 7%;
+            }
+          }
+        }
+      }
     }
   }
 }
