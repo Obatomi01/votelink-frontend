@@ -108,6 +108,7 @@ function Nav() {
                     className={isActive ? styles['active--link'] : ''}
                     href={link.href}
                     key={link.name}
+                    onClick={() => setShowNavBar(false)}
                   >
                     <p>{link.name}</p>
                   </Link>
