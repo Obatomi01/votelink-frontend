@@ -48,11 +48,11 @@ a {
   font-size: 1.8rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */
 
 /* DATE PICKER */
 .react-datepicker-wrapper {
